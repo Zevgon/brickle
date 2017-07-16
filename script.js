@@ -1,31 +1,34 @@
-var paddleWidth = 200,
+var
+  w = 800,
+  h = 600,
+  paddleWidth = 200,
   paddleHeight = 20,
   paddleVelocity = 5,
-  brickAreaWidth = 500,
+  brickAreaWidth = w - 200,
   brickAreaHeight = 200,
   bricksPerRow = 9,
   bricksPerCol = 10,
-  brickDist = 5,
+  brickDist = 3,
   bricks = [],
   ball,
   ballRadius = 20,
-  ballSpeed = 5,
+  ballSpeed = 4,
   lastMouseX = -1,
   mouseInterval = 50,
+  topBound = 40,
   paddle;
 
 var createBricks = function() {
   var leftBound = parseInt((w - brickAreaWidth) / 2);
-  var topBound = 20;
   var brickWidth = parseInt(brickAreaWidth / bricksPerRow);
   var brickHeight = parseInt(brickAreaHeight / bricksPerCol);
   for (var i = 0; i < bricksPerCol; i++) {
     for (var j = 0; j < bricksPerRow; j++) {
       bricks.push(new Brick(
-        leftBound + j * brickWidth,
-        topBound + i * brickHeight,
-        brickWidth - brickDist / 2,
-        brickHeight - brickDist / 2));
+        leftBound + j * brickWidth + brickDist / 2,
+        topBound + i * brickHeight + brickDist / 2,
+        brickWidth - brickDist,
+        brickHeight - brickDist));
     }
   }
 }

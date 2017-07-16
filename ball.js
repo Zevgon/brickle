@@ -50,7 +50,7 @@ function Ball(x, y, r, s) {
     var distance = dist(this.x,this.y,testX,testY)
 
     // if the distance is less than the radius, collision!
-    if (distance <= this.r) {
+    if (distance <= this.r / 2) {
       return [xEdge, yEdge];
     }
     return false;
